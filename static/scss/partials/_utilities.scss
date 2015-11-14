@@ -1,0 +1,51 @@
+/*********************
+Margins
+*********************/
+// margin top & bottom
+.u-mg-ns{
+	margin-top:$margin;
+	margin-bottom:$margin;
+}
+
+/*********************
+Floats
+*********************/
+// float right
+.u-fl-r{
+	float:right;
+}
+
+// float left
+.u-fl-l{
+	float:left;
+}
+
+/*********************
+Text Formats
+*********************/
+// center
+.u-txt-c{
+	text-align:center;
+}
+
+/*********************
+Icons
+*********************/
+
+
+
+/*********************
+Hide Utilities
+*********************/
+// hide on desktop
+.u-hid-md{
+	@include screen-size(md-max){
+		display:none;
+	}
+}
+
+.u-sho-md{
+	@include screen-size(md-min){
+		display:none;
+	}
+}

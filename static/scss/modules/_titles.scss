@@ -1,0 +1,33 @@
+.c-title{
+	font-weight:bold;
+}
+
+.c-title--light{
+	color:$white;
+}
+
+.c-title--caps{
+	text-transform:uppercase;
+}
+
+// title sizes
+
+.c-title--lg{
+	font-size:$base-space*3;
+}
+
+.c-title--md{
+	font-size:$base-space*2;
+}
+
+.c-title--sm{
+	font-size:$base-space;
+}
+
+.c-title--xs{
+	font-size:$base-space/1.2;
+}
+
+.c-title--micro{
+	font-size:$base-space/1.5;
+}

@@ -1,0 +1,15 @@
+.c-list{
+	list-style-type:none;
+}
+
+.c-list--inline{
+	li{
+		display:inline-block;
+	}
+}
+
+.c-list--first{
+	li:first-of-type{
+		margin-right:$margin/2;
+	}
+}

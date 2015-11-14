@@ -1,0 +1,28 @@
+.c-header{
+	background:url('../images/bg.png');
+	background-size:cover;
+	height:530px;
+	margin-top:-6px;
+}
+
+.c-header__details{
+	font-size:$base-space/1.2;
+	color:$white;
+	line-height:$base-space/2;
+	opacity:0.7;
+	float:right;
+	@include screen-size(md-max){
+		float:none;
+	}
+
+	li{
+		padding-left:$base-space;
+		@include screen-size(md-max){
+			padding:0;
+		}
+	}
+}
+
+.c-header__intro{
+	font-weight:300;
+}
