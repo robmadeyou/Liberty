@@ -1,6 +1,6 @@
 <?php
 
-namespace Your\WebApp\Presenters;
+namespace Project\Liberty\Presenters;
 
 use Rhubarb\Leaf\Presenters\HtmlPresenter;
 

@@ -1,10 +1,18 @@
 <?php
 
-namespace Your\WebApp;
+namespace Project\Liberty;
 
+use Project\Liberty\Models\Contact;
+use Project\Liberty\Models\DefaultSolutionSchema;
+use Rhubarb\Crown\Encryption\HashProvider;
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\Module;
 use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
+use Rhubarb\Scaffolds\Authentication\LoginProvider;
+use Rhubarb\Scaffolds\AuthenticationWithRoles\AuthenticationWithRolesModule;
+use Rhubarb\Stem\Repositories\MySql\MySql;
+use Rhubarb\Stem\Repositories\Repository;
+use Rhubarb\Stem\Schema\SolutionSchema;
 
 class YourAppModule extends Module
 {
@@ -12,7 +20,12 @@ class YourAppModule extends Module
     {
         parent::initialise();
 
+        Repository::SetDefaultRepositoryClassName( MySql::class );
+
         include_once("settings/site.config.php");
+
+        SolutionSchema::registerSchema( 'Default', DefaultSolutionSchema::class );
+
     }
 
     protected function registerUrlHandlers()
@@ -24,14 +37,15 @@ class YourAppModule extends Module
         // the MvpUrlHandler and CrudUrlHandler
         $this->addUrlHandlers(
             [
-                "/" => new ClassMappedUrlHandler('\Your\WebApp\Presenters\IndexPresenter')
+                "/" => new ClassMappedUrlHandler('\Project\Liberty\Presenters\IndexPresenter')
             ]
         );
     }
 
     protected function registerDependantModules()
     {
-        Module::registerModule( new LayoutModule( '\Your\WebApp\Layouts\DefaultLayout' ) );
+        Module::registerModule( new LayoutModule( '\Project\Liberty\Layouts\DefaultLayout' ) );
+        HashProvider::setHashProviderClassName( 'Rhubarb\Crown\Encryption\Sha512HashProvider' );
     }
 }
 

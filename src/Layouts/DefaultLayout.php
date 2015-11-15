@@ -1,6 +1,6 @@
 <?php
 
-namespace Your\WebApp\Layouts;
+namespace Project\Liberty\Layouts;
 
 use Rhubarb\Crown\Html\ResourceLoader;
 use Rhubarb\Patterns\Layouts\BaseLayout;

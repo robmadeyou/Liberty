@@ -1,12 +1,52 @@
 <?php
 
-namespace Your\WebApp\Presenters;
+namespace Project\Liberty\Presenters;
 
-use Rhubarb\Crown\Settings\HtmlPageSettings;
+use Project\Liberty\Models\Contact;
+use Rhubarb\Leaf\Presenters\Controls\Buttons\Button;
+use Rhubarb\Leaf\Presenters\Controls\Text\TextBox\TextBox;
 use Rhubarb\Leaf\Views\HtmlView;
 
 class IndexView extends HtmlView
 {
+    public function createPresenters()
+    {
+        parent::createPresenters();
+
+        $this->addPresenters(
+            $name = new TextBox( 'Name' ),
+            $email = new TextBox( 'Email' ),
+            $website = new TextBox( 'Website' ),
+            $company = new TextBox( 'CompanyName' ),
+            $send = new Button( 'Send', 'Send', function()
+            {
+                $contact = new Contact();
+                $contact->Name = $this->presenters[ 'Name' ]->Text;
+                $contact->ContactEmail = $this->presenters[ 'Email' ]->Text;
+                $contact->CompanyName = $this->presenters[ 'CompanyName' ]->Text;
+                $contact->Website = $this->presenters[ 'Website' ]->Text;
+                $contact->save();
+                $this->presenters[ 'Website' ];
+                $this->presenters[ 'CompanyName' ];
+                $this->presenters[ 'Send' ];
+            } )
+        );
+
+        foreach( $this->presenters as $presenter )
+        {
+            if( $presenter instanceof TextBox )
+            {
+                $presenter->addHtmlAttribute( 'value', '' );
+            }
+        }
+
+        $name->setPlaceholderText( 'Name' );
+        $email->setPlaceholderText( 'Contact Email Address' );
+        $website->setPlaceholderText( 'Website (If any)' );
+        $company->setPlaceholderText( 'Company Name' );
+
+    }
+
     protected function printViewContent()
     {
         parent::printViewContent();
@@ -20,7 +60,13 @@ class IndexView extends HtmlView
                     <a href="#" class="c-button c-button--primary">Tweet Us</a>
                 </div>
                 <div class="m-all t-1of2 d-1of2">
-                    <h1>Hello World</h1>
+                    <?php
+                        print $this->presenters[ 'Name' ];
+                        print $this->presenters[ 'Email' ];
+                        print $this->presenters[ 'Website' ];
+                        print $this->presenters[ 'CompanyName' ];
+                        print $this->presenters[ 'Send' ];
+                    ?>
                 </div>
             </div>
         </div>
