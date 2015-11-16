@@ -52,13 +52,29 @@ class IndexView extends HtmlView
         parent::printViewContent();
 
         ?>
-        <div class="wrap cf">
-            <div class="c-section cf">
-                <div class="m-all t-1of2 d-1of2">
-                    <h1>Hello World</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel metus in neque pharetra ultricies at eu mauris. Nunc vitae mi vitae justo blandit cursus. Mauris vel mattis dui. Aliquam vitae felis et nunc hendrerit cursus id eu est. Duis ultricies erat mauris, ut commodo enim varius in. Praesent commodo ullamcorper diam id condimentum. Phasellus et lectus elit. Suspendisse ac porttitor sapien. Sed consequat hendrerit vestibulum. Integer eget nibh iaculis, commodo felis at, finibus dui. Ut eu sagittis risus. Proin dignissim ut enim eu consectetur. Donec euismod aliquet dapibus. Phasellus euismod velit in ligula efficitur, nec aliquam nibh ornare. Mauris eu dolor tempor, varius neque quis, hendrerit nisi.</p>
-                    <a href="#" class="c-button c-button--primary">Tweet Us</a>
+        <div class="c-section">
+            <div class="c-section__header">
+                <ul class="c-list c-list--inline c-list--nav">
+                    <li><a href="#">about liberty</a></li>
+                    <li><a href="#">terms of service</a></li>
+                    <li><a href="#">get in touch</a></li>
+                </ul>
+            </div>
+            <div class="wrap">
+                <div class="u-v">
+                    <h1 class="c-title c-title--main animated fadeInUp">Giving small business a fighting chance online.</h1>
+                    <div class="c-section__text animated fadeInUp">
+                        <p>We feel that every business deserves to leave their mark on the internet. That’s why we’re giving away <span class="u-white u-b">1 FREE</span> bespoke single page website every <span class="u-white u-b">2 WEEKS</span>.</p>
+
+                        <p>Register below for your chance to win.</p>
+                    </div>
+                    <a href="#" class="c-button c-button--primary animated fadeInUp">Register</a>
                 </div>
+            </div>
+        </div>
+
+        <div class="wrap cf" style="display:none;">
+            <div class="c-section cf">
                 <div class="m-all t-1of2 d-1of2">
                     <?php
                         print $this->presenters[ 'Name' ];
@@ -69,9 +85,6 @@ class IndexView extends HtmlView
                     ?>
                 </div>
             </div>
-        </div>
-        <div class="c-background">
-            <canvas id="world"></canvas>
         </div>
         <?php
 

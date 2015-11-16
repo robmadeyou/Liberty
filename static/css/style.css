@@ -530,7 +530,8 @@ p {
   -moz-font-feature-settings: "liga=1, dlig=1";
   -ms-font-feature-settings: "liga", "dlig";
   -o-font-feature-settings: "liga", "dlig";
-  font-feature-settings: "liga", "dlig"; }
+  font-feature-settings: "liga", "dlig";
+  font-size: 14px; }
 
 /******************************************************************
 Site Name:
@@ -621,6 +622,9 @@ BOX SIZING
 probably best not to use it. I mean, were you going to anyway? */
 /*********************
 BOX SHADOW
+*********************/
+/*********************
+GRID SYSTEM
 *********************/
 /*********************
 GRID SYSTEM
@@ -859,8 +863,8 @@ them however you see fit.
 Margins
 *********************/
 .u-mg-ns {
-  margin-top: 16px;
-  margin-bottom: 16px; }
+  margin-top: 14px;
+  margin-bottom: 14px; }
 
 /*********************
 Floats
@@ -890,6 +894,33 @@ Hide Utilities
 @media (min-width: 784px) {
   .u-sho-md {
     display: none; } }
+
+/*********************
+VERTICAL CENTERING
+*********************/
+@media (min-width: 784px) {
+  .u-v {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    max-width: 500px; } }
+@media (max-width: 784px) {
+  .u-v {
+    width: 100%; } }
+
+/*********************
+COLORS
+*********************/
+.u-white {
+  color: #fff; }
+
+/*********************
+WEIGHTS
+*********************/
+.u-b {
+  font-weight: bold; }
 
 /*********************
 IMPORTING MODULES
@@ -954,24 +985,29 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
 
 *********************/
 .c-button {
+  -webkit-box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.2);
   display: inline-block;
   position: relative;
   text-decoration: none;
-  font-size: 13.3333333333px;
+  font-size: 16.8px;
   font-weight: normal;
-  padding: 8px 40px;
+  padding: 14px 70px;
   cursor: pointer;
   text-transform: uppercase;
   font-weight: 700;
-  line-height: 32px;
-  border-radius: 8px; }
+  line-height: 28px;
+  border-radius: 4.66667px; }
 
 .c-button--primary {
-  background: #00BBE7;
-  color: #fff; }
+  background: #fff;
+  color: #496073;
+  font-weight: 900;
+  text-transform: uppercase; }
   .c-button--primary:hover {
-    background: #0092b4;
-    color: #fff; }
+    background: rgba(255, 255, 255, 0.8);
+    color: #354654; }
 
 /******************************************************************
 Site Name:
@@ -1269,16 +1305,16 @@ select {
   margin-top: -6px; }
 
 .c-header__details {
-  font-size: 13.3333333333px;
+  font-size: 11.66667px;
   color: #fff;
-  line-height: 8px;
+  line-height: 7px;
   opacity: 0.7;
   float: right; }
   @media (max-width: 784px) {
     .c-header__details {
       float: none; } }
   .c-header__details li {
-    padding-left: 16px; }
+    padding-left: 14px; }
     @media (max-width: 784px) {
       .c-header__details li {
         padding: 0; } }
@@ -1297,41 +1333,51 @@ select {
   z-index: 1; }
 
 .c-title {
-  font-weight: bold; }
+  text-align: center;
+  color: white; }
 
-.c-title--light {
-  color: #fff; }
-
-.c-title--caps {
-  text-transform: uppercase; }
-
-.c-title--lg {
-  font-size: 48px; }
-
-.c-title--md {
-  font-size: 32px; }
-
-.c-title--sm {
-  font-size: 16px; }
-
-.c-title--xs {
-  font-size: 13.3333333333px; }
-
-.c-title--micro {
-  font-size: 10.6666666667px; }
+.c-title--main {
+  font-weight: 300;
+  text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); }
 
 .c-section {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  position: relative;
-  top: 50%;
-  transform: translateY(30%); }
-  @media (max-width: 784px) {
+  background-color: #6EE2E6;
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#5648C1), to(#6EE2E6));
+  background-image: -webkit-linear-gradient(left top, #5648C1, #6EE2E6);
+  background-image: -moz-linear-gradient(bottom left, #5648C1, #6EE2E6);
+  background-image: -o-linear-gradient(bottom left, #5648C1, #6EE2E6);
+  background-image: linear-gradient(to bottom left, #5648C1, #6EE2E6);
+  width: -moz-calc(100% - ($base-space));
+  width: -webkit-calc(100% - ($base-space));
+  width: -o-calc(100% - ($base-space));
+  width: calc(100% - ($base-space));
+  height: -moz-calc(100% - ($base-space));
+  height: -webkit-calc(100% - ($base-space));
+  height: -o-calc(100% - ($base-space));
+  height: calc(100% - ($base-space));
+  border-radius: 4.66667px;
+  padding: 14px;
+  position: absolute;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.8);
+  left: 14px;
+  top: 14px;
+  right: 14px;
+  bottom: 14px;
+  text-align: center; }
+  @media (max-width: 480px) {
     .c-section {
-      top: 16px;
-      transform: none; } }
+      position: static;
+      height: 100%; } }
+
+.c-section__text {
+  margin: 28px 0;
+  color: rgba(255, 255, 255, 0.7); }
+
+.c-section__header {
+  float: right; }
+  @media (max-width: 784px) {
+    .c-section__header {
+      float: none; } }
 
 .c-list {
   list-style-type: none; }
@@ -1339,8 +1385,15 @@ select {
 .c-list--inline li {
   display: inline-block; }
 
-.c-list--first li:first-of-type {
-  margin-right: 8px; }
+.c-list--nav li {
+  padding: 0 14px; }
+  .c-list--nav li a {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    padding-bottom: 7px; }
+    .c-list--nav li a:hover {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.7); }
 
 .c-image--center {
   display: block;
@@ -1359,7 +1412,7 @@ select {
   opacity: 0.5; }
 
 .c-footer__text {
-  font-size: 10.6666666667px; }
+  font-size: 9.33333px; }
 
 /*********************
 IMPORTING LAYOUTS
@@ -1387,6 +1440,14 @@ and will be used across all viewports.
 /*********************
 GENERAL STYLES
 *********************/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
 body {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 100%;
@@ -1396,12 +1457,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   z-index: 2;
-  margin: 0;
   padding: 0;
+  margin-top: -24px;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  background: #fff; }
+  background: #354654; }
 
 /********************
 WORDPRESS BODY CLASSES
@@ -1450,7 +1510,7 @@ LAYOUT & GRID STYLES
   margin: 0 auto; }
   @media (max-width: 784px) {
     .wrap {
-      padding: 0 8px; } }
+      padding: 0 7px; } }
 
 /*********************
 LINK STYLES
@@ -1460,7 +1520,6 @@ a, a:visited {
   /* on click */
   /* mobile tap color */ }
   a:hover, a:focus, a:visited:hover, a:visited:focus {
-    color: #e8e8e8;
     outline: none; }
   a:link, a:visited:link {
     /*
@@ -1510,7 +1569,7 @@ h5, .h5 {
 HEADER STYLES
 *********************/
 .header {
-  padding: 16px;
+  padding: 14px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
 
 #logo {
@@ -1638,7 +1697,7 @@ POSTS & CONTENT STYLES
   .entry-content blockquote {
     margin: 0 0 1.5em 0.75em;
     padding: 0 0 0 0.75em;
-    border-left: 3px solid #00BBE7;
+    border-left: 3px solid #2980b9;
     font-style: italic;
     color: #9fa6b4; }
   .entry-content dd {
@@ -1658,7 +1717,7 @@ POSTS & CONTENT STYLES
     max-width: 100%;
     height: auto; }
   .entry-content pre {
-    background: #323944;
+    background: #000;
     color: #f8f9fa;
     font-size: 0.9em;
     padding: 1.5em;
@@ -1720,9 +1779,9 @@ PAGE NAVI STYLES
     padding: 0.75em;
     min-width: 1em;
     display: block;
-    color: #00BBE7; }
+    color: #2980b9; }
     .pagination a:hover, .pagination a:focus, .pagination span:hover, .pagination span:focus {
-      background-color: #00BBE7;
+      background-color: #2980b9;
       color: #fff; }
   .pagination .current {
     cursor: default;
@@ -2026,7 +2085,7 @@ you can add resource intensive styles.
     /* highlight current page */
     /* end current highlighters */ }
     .nav ul {
-      background: #323944;
+      background: #000;
       margin-top: 0; }
     .nav li {
       float: left;
@@ -2144,7 +2203,7 @@ you can add resource intensive styles.
   
   ******************************************************************/
   .wrap {
-    width: 960px; } }
+    width: 500px; } }
 /*********************
 LARGE VIEWING SIZE
 This is for the larger monitors and possibly full screen viewers.

@@ -8,8 +8,19 @@
 	}
 }
 
-.c-list--first{
-	li:first-of-type{
-		margin-right:$margin/2;
+.c-list--nav{
+	li {
+		padding:0 $padding;
+
+		a{
+			font-size:$base-space;
+			color:$white-faint;
+			text-decoration:none;
+			padding-bottom:$padding/2;
+
+			&:hover{
+				border-bottom:1px solid $white-faint;
+			}
+		}
 	}
 }

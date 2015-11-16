@@ -47,13 +47,13 @@ really slow down your CSS. Don't overdo it.
 *********************/
 
 /* @include css-gradient(#dfdfdf,#f8f8f8); */
-@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
+@mixin css-gradient($from: $light, $to: $dark) {
 	background-color: $to;
-	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background-image: -webkit-gradient(linear, left bottom, right top, from($from), to($to));
 	background-image: -webkit-linear-gradient(left top, $from, $to);
-	background-image: -moz-linear-gradient(bottom right, $from, $to);
-	background-image: -o-linear-gradient(bottom right, $from, $to);
-	background-image: linear-gradient(to bottom right, $from, $to);
+	background-image: -moz-linear-gradient(bottom left, $from, $to);
+	background-image: -o-linear-gradient(bottom left, $from, $to);
+	background-image: linear-gradient(to bottom left, $from, $to);
 }
 
 /*********************
@@ -75,9 +75,9 @@ BOX SHADOW
 *********************/
 
 @mixin box-shadow($type: box-shadow) {
-	-webkit-box-shadow: 0px 30px 40px 0px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0px 30px 40px 0px rgba(0,0,0,0.2);
-	box-shadow: 0px 30px 40px 0px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.2);
 }
 
 /*********************
@@ -129,3 +129,22 @@ GRID SYSTEM
 }
 
 
+/*********************
+GRID SYSTEM
+*********************/
+
+// nifty calculations
+
+@mixin width{
+    width: -moz-calc(100% - ($base-space));
+  	width: -webkit-calc(100% - ($base-space));
+  	width: -o-calc(100% - ($base-space));
+  	width: calc(100% - ($base-space));
+}
+
+@mixin height{
+	height: -moz-calc(100% - ($base-space));
+  	height: -webkit-calc(100% - ($base-space));
+  	height: -o-calc(100% - ($base-space));
+  	height: calc(100% - ($base-space));
+}

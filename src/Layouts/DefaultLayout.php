@@ -27,12 +27,13 @@ class DefaultLayout extends BaseLayout
             <![endif]-->
 
             <!-- Google Fonts -->
-            <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'>
 
             <!-- Font Awesome -->
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
             <link rel="stylesheet"  href="/static/css/style.css" type="text/css" media="all" />
+            <link rel="stylesheet"  href="/static/css/animate.css" type="text/css" media="all" />
 
 
             <meta name="msapplication-TileColor" content="#f01d4f">

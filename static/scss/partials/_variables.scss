@@ -22,8 +22,9 @@ $alert-red:         #fbe3e4;
 $alert-green:       #e6efc2;
 $alert-blue:        #d5edf8;
 
-$black:             #323944;
+$black:             #000;
 $white:             #fff;
+$white-faint:       rgba(255,255,255,0.7);
 
 $light-gray:        #f8f9fa;
 $gray:              #eaedf2;
@@ -43,8 +44,10 @@ $link-hover:        darken($link-color, 9%);
 $border-color:      #ccc;
 $disabled-gray:     #cfcfcf;
 
-$blue:				#00BBE7;
-$green:				#7EBF5F;
+$background-navy:   #354654;
+
+$dark-blue:				#5648C1;
+$light-blue:            #6EE2E6;
 
 // color map
 
@@ -54,19 +57,12 @@ $brand-colours: (
         light:  lighten($blue, 10%),
         dark:   darken($blue, 10%)
     ),
-
-    green: (
-        base:   $green,
-        light:  lighten($green, 10%),
-        dark:   darken($green, 10%)
-    ),
     
     white: (
 	    base: $white
     ),
     
 );
-
 
 
 
@@ -80,10 +76,10 @@ http://sachagreif.com/sass-color-variables/
 BASE SPACE
 *********************/
 
-$base-space:	16px;
+$base-space:	14px;
 $padding:		$base-space;
 $margin:		$base-space;
-$base-radius:	$base-space;
+$base-radius:	$base-space/3;
 
 /*********************
 FONT SIZES
@@ -98,5 +94,6 @@ $small				: 480px;
 $medium				: 784px;
 $large				: 1024px;
 $x-large			: 1456px;
+
 
 
