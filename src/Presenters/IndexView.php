@@ -18,7 +18,7 @@ class IndexView extends HtmlView
             $email = new TextBox( 'Email' ),
             $website = new TextBox( 'Website' ),
             $company = new TextBox( 'CompanyName' ),
-            $send = new Button( 'Send', 'Send', function()
+            $send = new Button( 'Send', 'Register', function()
             {
                 $contact = new Contact();
                 $contact->Name = $this->presenters[ 'Name' ]->Text;
@@ -44,6 +44,9 @@ class IndexView extends HtmlView
         $website->setPlaceholderText( 'Website (If any)' );
         $company->setPlaceholderText( 'Company Name' );
 
+        $send->addCssClassName( 'c-button c-button--secondary' );
+
+
     }
 
     protected function printViewContent()
@@ -61,30 +64,31 @@ class IndexView extends HtmlView
             </div>
             <div class="wrap">
                 <div class="u-v">
-                    <h1 class="c-title c-title--main animated fadeInUp">Giving small business a fighting chance online.</h1>
+                    <h1 class="c-title c-title--main animated fadeInUp js-title--main">Giving small business a fighting chance online.</h1>
                     <div class="c-section__text animated fadeInUp">
                         <p>We feel that every business deserves to leave their mark on the internet. That’s why we’re giving away <span class="u-white u-b">1 FREE</span> bespoke single page website every <span class="u-white u-b">2 WEEKS</span>.</p>
 
                         <p>Register below for your chance to win.</p>
                     </div>
-                    <a href="#" class="c-button c-button--primary animated fadeInUp">Register</a>
+                    <a href="#" class="c-button c-button--primary animated fadeInUp js-button--register">Register</a>
                 </div>
+            </div>
+            <div class="c-section__form">
+                <a href="#"><img src="/static/images/close.png" alt="close" width="35"/></a>
+                <?php
+                    print "<label>Name</label>";
+                    print $this->presenters[ 'Name' ];
+                    print "<label>Email</label>";
+                    print $this->presenters[ 'Email' ];
+                    print "<label>Website</label>";
+                    print $this->presenters[ 'Website' ];
+                    print "<label>Company Name</label>";
+                    print $this->presenters[ 'CompanyName' ];
+                    print $this->presenters[ 'Send' ];
+                ?>
             </div>
         </div>
 
-        <div class="wrap cf">
-            <div class="c-section cf">
-                <div class="m-all t-1of2 d-1of2">
-                    <?php
-                        print $this->presenters[ 'Name' ];
-                        print $this->presenters[ 'Email' ];
-                        print $this->presenters[ 'Website' ];
-                        print $this->presenters[ 'CompanyName' ];
-                        print $this->presenters[ 'Send' ];
-                    ?>
-                </div>
-            </div>
-        </div>
         <?php
 
 

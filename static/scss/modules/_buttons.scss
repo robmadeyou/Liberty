@@ -29,7 +29,7 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
 }
 
 .c-button{
-  @include box-shadow(box-shadow);
+  @include box-shadow(box-shadow-light);
   display: inline-block;
   position: relative;
   text-decoration: none;
@@ -41,6 +41,7 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   font-weight:700;
   line-height:$base-space*2;
   border-radius:$base-radius;
+  border:0;
 }
 
 .c-button--primary{
@@ -52,5 +53,17 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   &:hover{
     background:rgba(255,255,255,0.8);
     color:$background-navy;
+  }
+}
+
+.c-button--secondary{
+  background:$background-navy;
+  color:$white;
+  font-weight:900;
+  text-transform:uppercase;
+
+  &:hover{
+    background:lighten($background-navy,5%);
+    color:$white;
   }
 }

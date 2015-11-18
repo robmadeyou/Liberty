@@ -2,10 +2,10 @@
 	@include css-gradient($dark-blue,$light-blue);
 	@include width();
 	@include height();
+	@include box-shadow(box-shadow);
 	border-radius:$base-radius;
 	padding:$padding;
 	position:absolute;
-	box-shadow: 0px 0px 12px rgba(0,0,0,0.8);
     left: $base-space;
     top: $base-space;
     right: $base-space;
@@ -28,5 +28,32 @@
 
 	@include screen-size(md-max){
 		float:none;
+	}
+}
+
+.c-section__form{
+	@include box-shadow(box-shadow-light);
+	background:$white;
+	position:absolute;
+	bottom:0;
+	height:550px;
+	width:400px;
+	margin:0 auto;
+	left:0;
+	right:0;
+	padding:$base-space*3 $base-space;
+	border-radius:$base-radius $base-radius 0 0;
+	display:none;
+
+	@include screen-size(sm-max){
+		top:$base-space;
+		height:100%;
+		width:100%;
+	}
+
+	img{
+		position:absolute;
+		right:-($base-space);
+		top:-($base-space);
 	}
 }
