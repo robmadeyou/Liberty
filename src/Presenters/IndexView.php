@@ -25,11 +25,10 @@ class IndexView extends HtmlView
                 $contact->ContactEmail = $this->presenters[ 'Email' ]->Text;
                 $contact->CompanyName = $this->presenters[ 'CompanyName' ]->Text;
                 $contact->Website = $this->presenters[ 'Website' ]->Text;
+                $contact->IP = $_SERVER[ 'REMOTE_ADDR' ];
                 $contact->save();
-                $this->presenters[ 'Website' ];
-                $this->presenters[ 'CompanyName' ];
-                $this->presenters[ 'Send' ];
-            } )
+                print 'wwowowow';
+            }, true )
         );
 
         foreach( $this->presenters as $presenter )
@@ -52,7 +51,7 @@ class IndexView extends HtmlView
         parent::printViewContent();
 
         ?>
-        <div class="c-section">
+        <div class="c-section js-slideUp">
             <div class="c-section__header">
                 <ul class="c-list c-list--inline c-list--nav">
                     <li><a href="#">about liberty</a></li>
@@ -73,7 +72,7 @@ class IndexView extends HtmlView
             </div>
         </div>
 
-        <div class="wrap cf" style="display:none;">
+        <div class="wrap cf">
             <div class="c-section cf">
                 <div class="m-all t-1of2 d-1of2">
                     <?php
