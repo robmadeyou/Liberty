@@ -5,10 +5,14 @@ namespace Project\Liberty\Presenters;
 use Project\Liberty\Models\Contact;
 use Rhubarb\Leaf\Presenters\Controls\Buttons\Button;
 use Rhubarb\Leaf\Presenters\Controls\Text\TextBox\TextBox;
-use Rhubarb\Leaf\Views\HtmlView;
+use Rhubarb\Leaf\Views\WithJqueryViewBridgeTrait;
+use Rhubarb\Patterns\Mvp\Crud\CrudView;
 
-class IndexView extends HtmlView
+class IndexView extends CrudView
 {
+
+    use WithJqueryViewBridgeTrait;
+
     public function createPresenters()
     {
         parent::createPresenters();
@@ -27,7 +31,6 @@ class IndexView extends HtmlView
                 $contact->Website = $this->presenters[ 'Website' ]->Text;
                 $contact->IP = $_SERVER[ 'REMOTE_ADDR' ];
                 $contact->save();
-                print 'wwowowow';
             }, true )
         );
 
@@ -36,6 +39,7 @@ class IndexView extends HtmlView
             if( $presenter instanceof TextBox )
             {
                 $presenter->addHtmlAttribute( 'value', '' );
+                $presenter->addCssClassName( 'alert' );
             }
         }
 
@@ -45,8 +49,6 @@ class IndexView extends HtmlView
         $company->setPlaceholderText( 'Company Name' );
 
         $send->addCssClassName( 'c-button c-button--secondary' );
-
-
     }
 
     protected function printViewContent()
@@ -65,7 +67,7 @@ class IndexView extends HtmlView
             <div class="wrap">
                 <div class="u-v">
                     <h1 class="c-title c-title--main animated fadeInUp js-title--main">Giving small business a fighting chance online.</h1>
-                    <div class="c-section__text animated fadeInUp">
+                    <div class="c-section__text animated fadeInUp js-text--main">
                         <p>We feel that every business deserves to leave their mark on the internet. That’s why we’re giving away <span class="u-white u-b">1 FREE</span> bespoke single page website every <span class="u-white u-b">2 WEEKS</span>.</p>
 
                         <p>Register below for your chance to win.</p>
@@ -73,7 +75,7 @@ class IndexView extends HtmlView
                     <a href="#" class="c-button c-button--primary animated fadeInUp js-button--register">Register</a>
                 </div>
             </div>
-            <div class="c-section__form">
+            <div class="c-section__form js-input-overlay alert-error">
                 <a href="#"><img src="/static/images/close.png" alt="close" width="35"/></a>
                 <?php
                     print "<label>Name</label>";
@@ -88,9 +90,11 @@ class IndexView extends HtmlView
                 ?>
             </div>
         </div>
-
         <?php
+    }
 
-
+    public function getDeploymentPackageDirectory()
+    {
+        return __DIR__;
     }
 }

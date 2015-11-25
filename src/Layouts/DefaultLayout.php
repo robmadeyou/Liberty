@@ -7,6 +7,10 @@ use Rhubarb\Patterns\Layouts\BaseLayout;
 
 class DefaultLayout extends BaseLayout
 {
+    function __construct()
+    {
+        ResourceLoader::loadResource( 'static/css/base.css' );
+    }
 
     protected function printHead()
     {
