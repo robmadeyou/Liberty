@@ -8,6 +8,6 @@ class GetInTouchPresenter extends ModelFormPresenter
 {
     protected function createView()
     {
-
+        return new GetInTouchView();
     }
 }

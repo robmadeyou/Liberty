@@ -5,6 +5,7 @@ namespace Project\Liberty;
 use Project\Liberty\Models\Contact;
 use Project\Liberty\Models\DefaultSolutionSchema;
 use Project\Liberty\Presenters\About\AboutPresenter;
+use Project\Liberty\Presenters\GetInTouch\GetInTouchPresenter;
 use Project\Liberty\Presenters\IndexPresenter;
 use Project\Liberty\Presenters\Terms\TermsPresenter;
 use Project\Liberty\Presenters\Winner\WinnerPresenter;
@@ -45,7 +46,7 @@ class YourAppModule extends Module
                     'w' => new ClassMappedUrlHandler( WinnerPresenter::class ),
                     'a' => new ClassMappedUrlHandler( AboutPresenter::class ),
                     't' => new ClassMappedUrlHandler( TermsPresenter::class ),
-                    'g' => new ClassMappedUrlHandler( TermsPresenter::class ),
+                    'g' => new ClassMappedUrlHandler( GetInTouchPresenter::class ),
                 ] )
             ]
         );
