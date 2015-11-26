@@ -75,7 +75,7 @@ class IndexView extends CrudView
                     <a href="#" class="c-button c-button--primary animated fadeInUp js-button--register">Register</a>
                 </div>
             </div>
-            <div class="c-section__form js-input-overlay alert-error">
+            <div class="c-section__form js-input-overlay">
                 <a href="#"><img src="/static/images/close.png" alt="close" width="35"/></a>
                 <?php
                     print "<label>Name</label>";

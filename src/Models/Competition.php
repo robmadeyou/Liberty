@@ -8,6 +8,6 @@ class Competition extends Model
 {
     protected function createSchema()
     {
-        
+
     }
 }

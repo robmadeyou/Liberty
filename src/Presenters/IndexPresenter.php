@@ -14,7 +14,34 @@ class IndexPresenter extends ModelFormPresenter
 
     public static function checkIfNameIsTaken( $name )
     {
-        if( MySql::returnSingleValue( "SELECT ContactID FROM tblContact WHERE tblContact.Name = ':Name'", [ 'Name' => $name ] ) )
+        if( MySql::returnSingleValue( "SELECT COUNT( ContactID ) FROM tblContact WHERE tblContact.Name = :contact", [ 'contact' => $name ] ) )
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public static function checkIfEmailIsTaken( $email )
+    {
+        if( MySql::returnSingleValue( "SELECT COUNT( ContactID ) FROM tblContact WHERE tblContact.ContactEmail = :email", [ 'email' => $email ] ) )
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public static function checkIfWebsiteIsTaken( $website )
+    {
+        if( MySql::returnSingleValue( "SELECT COUNT( ContactID ) FROM tblContact WHERE tblContact.Website = :website", [ 'website' => $website ] ) )
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public static function checkIfCompanyIsTaken( $company )
+    {
+        if( MySql::returnSingleValue( "SELECT COUNT( ContactID ) FROM tblContact WHERE tblContact.CompanyName = :company", [ 'company' => $company ] ) )
         {
             return false;
         }
@@ -33,7 +60,26 @@ class IndexPresenter extends ModelFormPresenter
                         return 0;
                     }
                     return 3;
+                case 'Email':
+                    if( self::checkIfEmailIsTaken( $value ) )
+                    {
+                        return 0;
+                    }
+                    return 3;
+                case 'Website':
+                    if( self::checkIfWebsiteIsTaken( $value ) )
+                    {
+                        return 0;
+                    }
+                    return 3;
+                case 'Company':
+                    if( self::checkIfCompanyIsTaken( $value ) )
+                    {
+                        return 0;
+                    }
+                    return 3;
             }
+            return 2;
         });
         return parent::configureView();
     }

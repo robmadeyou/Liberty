@@ -14,8 +14,11 @@ bridge.prototype.attachEvents = function () {
 	var register = $( '.js-button--register' );
 
 	var name_input = $( '#IndexPresenter_Name' );
+	var email_input = $( '#IndexPresenter_Email' );
+	var website_input = $( '#IndexPresenter_Website' );
+	var company_input = $( '#IndexPresenter_CompanyName' );
 
-	register.click( function()
+	register.click( function( event )
 	{
 		title.removeClass( 'fadeInUp' );
 		title.addClass( 'slideUp' );
@@ -35,7 +38,10 @@ bridge.prototype.attachEvents = function () {
 			{
 				$( '.js-input-overlay' ).css( 'opacity', '1' );
 			}, 100 );
-		}, 1500 )
+		}, 1500 );
+
+		event.preventDefault();
+		return false;
 	});
 
 	name_input.keyup( function()
@@ -43,12 +49,43 @@ bridge.prototype.attachEvents = function () {
 		inputCheck( 'Name', name_input.val(), function( val )
 		{
 			handleElementUpdate( name_input, parseInt( val ) );
-		});
+		}, name_input );
 	});
 
-	function inputCheck( elementName, value, callback )
+	email_input.keyup( function()
 	{
-		self.raiseServerEvent( 'InputCheck', elementName, value, callback );
+		inputCheck( 'Email', email_input.val(), function( val )
+		{
+			handleElementUpdate( email_input, parseInt( val ) );
+		}, email_input );
+	});
+
+	website_input.keyup( function()
+	{
+		inputCheck( 'Website', website_input.val(), function( val )
+		{
+			handleElementUpdate( website_input, parseInt( val ) )
+		}, website_input );
+	});
+
+	company_input.keyup( function()
+	{
+		inputCheck( 'Company', company_input.val(), function( val )
+		{
+			handleElementUpdate( company_input, parseInt( val ) )
+		}, company_input );
+	});
+
+	function inputCheck( elementName, value, callback, element )
+	{
+		if( value == "" )
+		{
+			clearMessages( element );
+		}
+		else
+		{
+			self.raiseServerEvent( 'InputCheck', elementName, value, callback );
+		}
 	}
 
 	function handleElementUpdate( element, mode )
@@ -57,26 +94,26 @@ bridge.prototype.attachEvents = function () {
 		switch( mode )
 		{
 			case 0:
-				element.addClass( 'alert-success' );
+				element.addClass( 'success' );
 				break;
 			case 1:
-				element.addClass( 'alert-info' );
+				element.addClass( 'info' );
 				break;
 			case 2:
-				element.addClass( 'alert-help' );
+				element.addClass( 'help' );
 				break;
 			case 3:
-				element.addClass( 'alert-error' );
+				element.addClass( 'error' );
 				break;
 		}
 	}
 
 	function clearMessages( element )
 	{
-		element.removeClass( 'alert-help' );
-		element.removeClass( 'alert-info' );
-		element.removeClass( 'alert-error' );
-		element.removeClass( 'alert-success' );
+		element.removeClass( 'help' );
+		element.removeClass( 'info' );
+		element.removeClass( 'error' );
+		element.removeClass( 'success' );
 	}
 };
 
