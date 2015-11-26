@@ -44,6 +44,12 @@ bridge.prototype.attachEvents = function () {
 		return false;
 	});
 
+	$( '.js-fade-out-index' ).click( function( event )
+	{
+		$( '.js-slideUp' ).fadeOut();
+		event.delay( 200 );
+	});
+
 	name_input.keyup( function()
 	{
 		inputCheck( 'Name', name_input.val(), function( val )
