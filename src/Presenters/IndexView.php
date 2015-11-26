@@ -59,9 +59,9 @@ class IndexView extends CrudView
         <div class="c-section js-slideUp">
             <div class="c-section__header">
                 <ul class="c-list c-list--inline c-list--nav">
-                    <li><a href="#">about liberty</a></li>
-                    <li><a href="#">terms of service</a></li>
-                    <li><a href="#">get in touch</a></li>
+                    <li><a href="/a" class="js-fade-out-index">about liberty</a></li>
+                    <li><a href="/t" class="js-fade-out-index">terms of service</a></li>
+                    <li><a href="/g" class="js-fade-out-index">get in touch</a></li>
                 </ul>
             </div>
             <div class="wrap">
