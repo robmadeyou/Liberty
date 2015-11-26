@@ -5,6 +5,7 @@ namespace Project\Liberty\Models;
 use Rhubarb\Stem\Models\Model;
 use Rhubarb\Stem\Schema\Columns\AutoIncrement;
 use Rhubarb\Stem\Schema\Columns\DateTime;
+use Rhubarb\Stem\Schema\Columns\Integer;
 use Rhubarb\Stem\Schema\Columns\String;
 use Rhubarb\Stem\Schema\ModelSchema;
 
@@ -20,7 +21,9 @@ class Contact extends Model
             new String( 'ContactEmail', 200 ),
             new String( 'CompanyName', 200 ),
             new String( 'Website', 200 ),
-            new DateTime( 'DatePosted' )
+            new String( 'IP', 15 ),
+            new DateTime( 'DatePosted' ),
+            new Integer( 'CompetitionID' )
         );
 
         return $schema;

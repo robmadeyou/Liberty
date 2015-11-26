@@ -112,7 +112,8 @@ p {
   -moz-font-feature-settings: "liga=1, dlig=1";
   -ms-font-feature-settings: "liga", "dlig";
   -o-font-feature-settings: "liga", "dlig";
-  font-feature-settings: "liga", "dlig"; }
+  font-feature-settings: "liga", "dlig";
+  font-size: 14px; }
 
 /******************************************************************
 Site Name:
@@ -158,6 +159,9 @@ BOX SIZING
 probably best not to use it. I mean, were you going to anyway? */
 /*********************
 BOX SHADOW
+*********************/
+/*********************
+GRID SYSTEM
 *********************/
 /*********************
 GRID SYSTEM
@@ -282,7 +286,7 @@ NAVIGATION STYLES
   /* highlight current page */
   /* end current highlighters */ }
   .nav ul {
-    background: #323944;
+    background: #000;
     margin-top: 0; }
   .nav li {
     float: left;
@@ -393,7 +397,7 @@ be seen on the Desktop.
 
 ******************************************************************/
 .wrap {
-  width: 960px; }
+  width: 500px; }
 
 /*
 you can call the larger styles if you want, but there's really no need

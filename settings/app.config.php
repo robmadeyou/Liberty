@@ -4,6 +4,8 @@ namespace Project\Liberty;
 
 use Project\Liberty\Models\Contact;
 use Project\Liberty\Models\DefaultSolutionSchema;
+use Project\Liberty\Presenters\IndexPresenter;
+use Project\Liberty\Presenters\Winner\WinnerPresenter;
 use Rhubarb\Crown\Encryption\HashProvider;
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\Module;
@@ -37,7 +39,9 @@ class YourAppModule extends Module
         // the MvpUrlHandler and CrudUrlHandler
         $this->addUrlHandlers(
             [
-                "/" => new ClassMappedUrlHandler('\Project\Liberty\Presenters\IndexPresenter')
+                "/" => new ClassMappedUrlHandler( IndexPresenter::class, [
+                    'w' => new ClassMappedUrlHandler( WinnerPresenter::class )
+                ] )
             ]
         );
     }

@@ -115,3 +115,21 @@
 	step();
 
 }).call(this);
+
+
+
+$(document).ready(function(){
+	$(".c-button--register").click(function(){
+		console.log();
+		$(".js-title--main").animate({marginTop: '-50px'});
+	});
+});
+
+
+
+
+
+
+
+
+
