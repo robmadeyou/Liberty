@@ -6,9 +6,6 @@ use Rhubarb\Leaf\Views\HtmlView;
 
 class WinnerView extends HtmlView
 {
-
-
-
     protected function printViewContent()
     {
         ?>
@@ -17,5 +14,4 @@ class WinnerView extends HtmlView
             </div>
         <?php
     }
-
 }
