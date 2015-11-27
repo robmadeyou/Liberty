@@ -1,0 +1,80 @@
+@-webkit-keyframes fadeUpOut {
+    from {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+        z-index: -1;
+        display: none;
+    }
+}
+
+@-webkit-keyframes slideUp {
+    from {
+        -webkit-transform: none;
+        transform: none;
+    }
+
+    to {
+        -webkit-transform: translate3d(0, -150%, 0);
+        transform: translate3d(0, -150%, 0);
+    }
+}
+
+.alert
+{
+    -webkit-transition: border-color 0.4s;
+    -moz-transition: border-color 0.4s;
+    transition: border-color 0.4s;
+}
+
+.c-section__form
+{
+    opacity: 0;
+    transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s;
+}
+
+.c-section__form.visible
+{
+    display: inherit;
+}
+
+.slideUp
+{
+    -webkit-animation-name: slideUp;
+    animation-name: slideUp;
+    -webkit-animation-delay: 0.4s; /* Chrome, Safari, Opera */
+    animation-delay: 0.4s;
+}
+
+.fadeUpOut
+{
+    -webkit-animation-name: fadeUpOut;
+    animation-name: fadeUpOut;
+    -webkit-animation-delay: 0.4s; /* Chrome, Safari, Opera */
+    animation-delay: 0.4s;
+}
+
+.fadeUpOut.d-1
+{
+    animation-delay: 0.4s;
+    -webkit-animation-delay: 0.4s;
+}
+
+.fadeUpOut.d-2
+{
+    animation-delay: 0.6s;
+    -webkit-animation-delay: 0.6s;
+}
+
+.fadeUpOut.d-3
+{
+    animation-delay: 0.8s;
+    -webkit-animation-delay: 0.8s;
+}
