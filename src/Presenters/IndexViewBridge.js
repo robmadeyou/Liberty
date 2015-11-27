@@ -47,7 +47,7 @@ bridge.prototype.attachEvents = function () {
 	$( '.js-fade-out-index' ).click( function( event )
 	{
 		$( '.js-slideUp' ).fadeOut();
-		event.delay( 200 );
+		event.delay( 500 );
 	});
 
 	name_input.keyup( function()
