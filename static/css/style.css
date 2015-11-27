@@ -530,7 +530,8 @@ p {
   -moz-font-feature-settings: "liga=1, dlig=1";
   -ms-font-feature-settings: "liga", "dlig";
   -o-font-feature-settings: "liga", "dlig";
-  font-feature-settings: "liga", "dlig"; }
+  font-feature-settings: "liga", "dlig";
+  font-size: 14px; }
 
 /******************************************************************
 Site Name:
@@ -621,6 +622,9 @@ BOX SIZING
 probably best not to use it. I mean, were you going to anyway? */
 /*********************
 BOX SHADOW
+*********************/
+/*********************
+GRID SYSTEM
 *********************/
 /*********************
 GRID SYSTEM
@@ -859,8 +863,8 @@ them however you see fit.
 Margins
 *********************/
 .u-mg-ns {
-  margin-top: 16px;
-  margin-bottom: 16px; }
+  margin-top: 14px;
+  margin-bottom: 14px; }
 
 /*********************
 Floats
@@ -890,6 +894,33 @@ Hide Utilities
 @media (min-width: 784px) {
   .u-sho-md {
     display: none; } }
+
+/*********************
+VERTICAL CENTERING
+*********************/
+@media (min-width: 784px) {
+  .u-v {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    max-width: 500px; } }
+@media (max-width: 784px) {
+  .u-v {
+    width: 100%; } }
+
+/*********************
+COLORS
+*********************/
+.u-white {
+  color: #fff; }
+
+/*********************
+WEIGHTS
+*********************/
+.u-b {
+  font-weight: bold; }
 
 /*********************
 IMPORTING MODULES
@@ -922,12 +953,12 @@ you can just remove this stylesheet.
   background: #d5edf8; }
 
 .alert-error {
-  border-color: #f8cdce;
-  background: #fbe3e4; }
+  border-color: #b70218;
+  background: #D0021B; }
 
 .alert-success {
-  border-color: #deeaae;
-  background: #e6efc2; }
+  border-color: #71bd1e;
+  background: #7ED321; }
 
 /******************************************************************
 Site Name:
@@ -954,23 +985,38 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
 
 *********************/
 .c-button {
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   display: inline-block;
   position: relative;
   text-decoration: none;
-  font-size: 13.3333333333px;
+  font-size: 16.8px;
   font-weight: normal;
-  padding: 8px 40px;
+  padding: 14px 70px;
   cursor: pointer;
   text-transform: uppercase;
   font-weight: 700;
-  line-height: 32px;
-  border-radius: 8px; }
+  line-height: 28px;
+  border-radius: 4.66667px;
+  border: 0; }
 
 .c-button--primary {
-  background: #00BBE7;
-  color: #fff; }
+  background: #fff;
+  color: #496073;
+  font-weight: 900;
+  text-transform: uppercase; }
   .c-button--primary:hover {
-    background: #0092b4;
+    background: rgba(255, 255, 255, 0.8);
+    color: #354654; }
+
+.c-button--secondary {
+  background: #354654;
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase; }
+  .c-button--secondary:hover {
+    background: #3f5364;
     color: #fff; }
 
 /******************************************************************
@@ -1011,20 +1057,19 @@ select,
 textarea,
 .field {
   display: block;
-  height: 40px;
+  height: 50px;
   line-height: 1em;
-  padding: 0 12px;
+  padding: 14px;
   margin-bottom: 14px;
-  font-size: 1em;
+  font-size: 0.8em;
   color: #5c6b80;
   border-radius: 3px;
   vertical-align: middle;
   box-shadow: none;
-  border: 0;
+  border: 1px solid #dfdfdf;
   width: 100%;
-  max-width: 400px;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #eaedf2;
+  background-color: #fff;
   -webkit-transition: background-color 0.24s ease-in-out;
   transition: background-color 0.24s ease-in-out; }
   input[type="text"]:focus, input[type="text"]:active,
@@ -1060,7 +1105,7 @@ textarea,
   textarea:active,
   .field:focus,
   .field:active {
-    background-color: #f7f8fa;
+    border: 1px solid #354654;
     outline: none; }
   input[type="text"].error, input[type="text"].is-invalid,
   input[type="password"].error,
@@ -1095,13 +1140,14 @@ textarea,
   textarea.is-invalid,
   .field.error,
   .field.is-invalid {
-    color: #fbe3e4;
-    border-color: #fbe3e4;
+    color: #D0021B;
+    border-color: #D0021B;
     background-color: #fff;
-    background-position: 99% center;
+    background-position: 98% center;
     background-repeat: no-repeat;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2NDM0NDREQkYwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2NDM0NDREQ0YwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjQ3ODRGRkE2RjA0QTExRTI5MjhERkZBMTMzMDYwNzI2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjY0MzQ0NERBRjA0QjExRTI5MjhERkZBMTMzMDYwNzI2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+U8iT5wAAAedJREFUeNqk1U9I02Ecx/HtV3aIFAc1hcRDUoGXRAq0oNLA2CrsEFmHbikZu0iQYIFGYAiegkCpLipBxPpDEBMUzB0EhSG2LhG7hMR2GviPgUTvB57Bw8P3+U23B16HPX8+e/b8nt93wezZSMCnhXETF3AcB5BDCnH8Dq98ExcGHcFn8Ah3cdDni+fxnPDv9oAnTB7CKu6VCFXtChZy56LxUjt+jfuB8toSOth9wd7xWAWhqrUjYR/FRTwWJm+iIPT/w7bQf5ljiZnBg45dtKFX6H+LU8gIY8OEV6vgTkStwXWE8BPTGDHGPqNPz2mCfSOOYkA99TvCt1bhGPL68zMcwmncMuape10jrI+q4BbHi/FLn31S9z2x5tRhTc+1W506ipM+T3oRD4X+8+qtc4SqFvL0z/Fr14S+Szjis8bz9Lvvaq8cwS/wwGfdlqfPSWqTiFlX77o13u9Ym1PBs8JAytpRoy44X9Ft9E/gvbA+rYKn8NcaaMVc8UHgBw4b9/iqUQZ6hOAJFbyDcUflmsEX4a6+wTtHGfhAIUqa1U29Zc2BytouThD8x6xuN5CtMPi2CrXLZkZf/HyZoRFCP7n+QVR4PV7uI/AjGghN7OU/r1ilnqILtfpNC+o6vIFljBKYlhb/F2AAgaBsWR5wRiIAAAAASUVORK5CYII=);
-    outline-color: #fbe3e4; }
+    background-image: url(../images/error.png);
+    background-size: 18px;
+    outline-color: #D0021B; }
   input[type="text"].success, input[type="text"].is-valid,
   input[type="password"].success,
   input[type="password"].is-valid,
@@ -1135,13 +1181,14 @@ textarea,
   textarea.is-valid,
   .field.success,
   .field.is-valid {
-    color: #e6efc2;
-    border-color: #e6efc2;
+    color: #7ED321;
+    border-color: #7ED321;
     background-color: #fff;
-    background-position: 99% center;
+    background-position: 98% center;
     background-repeat: no-repeat;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2NDM0NDRERkYwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2NDM0NDRFMEYwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjY0MzQ0NERERjA0QjExRTI5MjhERkZBMTMzMDYwNzI2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjY0MzQ0NERFRjA0QjExRTI5MjhERkZBMTMzMDYwNzI2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+7olkTQAAAfhJREFUeNqklU9oE0EUhzdroWjw0tBeWlDxkEaIp55TsCU9VKIgCrHBelA8CQ1Kr1WPbZrQ3gqtQqvGqxpQc2jBk6BIIaAGD4qNCKURpDSKiPi98gLDsJt//uBjsztvfnk7895sIPAw6/joGMThFJyAXn2+A+9gA57/TaY/eU0OeBgfhGm4DiGnsb7DAszxBz/NAdcKjMJLuNWCqagHbsscN5+L+hmH4QkMOe1L5jzFfNA2PgT34ajTuY7AGuZB0/hmh5m+gS0r8xv1zRvg+gGCHZiOwnF4DP3iB3sQkYxPd2C6CWfhB9Xwlus5+K1j4jXuaq3a+gM1H9OPcAa+7q9lPidZJqHbiIm7Wg22rsEI7FrPSzAMX/T+ADyAKSsu7Fr1KplehLvwCs5DvfBf65p+MypqRbO1FXK9utH4/QKuaqYTsG3E3INJv00Q46px3+XxanJ/Ute2/vqP4FKDza2KcdljIKdnhS0xXYULTaqmLMZFn8FFSFtvt6x70ExFCS5oUXspq2ssa7oEl1swFa+CGFdgtkHgPDyDKy02zyxNU6lXRUZb1EuHYayNNs+Yh5B0WQo+/8fpJnNTZFuzz2OpjoQ2QruSOQlMy35fEGmEGMxY9e1brxobw7TkWA1h6xfckUPb+JhGoE/Hpfvew7qUld/H9J8AAwDpw3WYrxcZ3QAAAABJRU5ErkJggg==);
-    outline-color: #e6efc2; }
+    background-image: url(../images/success.png);
+    background-size: 18px;
+    outline-color: #7ED321; }
   input[type="text"][disabled], input[type="text"].is-disabled,
   input[type="password"][disabled],
   input[type="password"].is-disabled,
@@ -1262,6 +1309,13 @@ select {
   background-repeat: no-repeat;
   background-position: 97.5% center; }
 
+label {
+  color: #354654;
+  text-transform: uppercase;
+  font-size: 0.6em;
+  font-weight: 900;
+  float: left; }
+
 .c-header {
   background: url("../images/bg.png");
   background-size: cover;
@@ -1269,16 +1323,16 @@ select {
   margin-top: -6px; }
 
 .c-header__details {
-  font-size: 13.3333333333px;
+  font-size: 11.66667px;
   color: #fff;
-  line-height: 8px;
+  line-height: 7px;
   opacity: 0.7;
   float: right; }
   @media (max-width: 784px) {
     .c-header__details {
       float: none; } }
   .c-header__details li {
-    padding-left: 16px; }
+    padding-left: 14px; }
     @media (max-width: 784px) {
       .c-header__details li {
         padding: 0; } }
@@ -1297,41 +1351,78 @@ select {
   z-index: 1; }
 
 .c-title {
-  font-weight: bold; }
+  text-align: center;
+  color: white; }
 
-.c-title--light {
-  color: #fff; }
-
-.c-title--caps {
-  text-transform: uppercase; }
-
-.c-title--lg {
-  font-size: 48px; }
-
-.c-title--md {
-  font-size: 32px; }
-
-.c-title--sm {
-  font-size: 16px; }
-
-.c-title--xs {
-  font-size: 13.3333333333px; }
-
-.c-title--micro {
-  font-size: 10.6666666667px; }
+.c-title--main {
+  font-weight: 300;
+  text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); }
 
 .c-section {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  position: relative;
-  top: 50%;
-  transform: translateY(30%); }
-  @media (max-width: 784px) {
+  background-color: #6EE2E6;
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#5648C1), to(#6EE2E6));
+  background-image: -webkit-linear-gradient(left top, #5648C1, #6EE2E6);
+  background-image: -moz-linear-gradient(bottom left, #5648C1, #6EE2E6);
+  background-image: -o-linear-gradient(bottom left, #5648C1, #6EE2E6);
+  background-image: linear-gradient(to bottom left, #5648C1, #6EE2E6);
+  width: -moz-calc(100% - ($base-space));
+  width: -webkit-calc(100% - ($base-space));
+  width: -o-calc(100% - ($base-space));
+  width: calc(100% - ($base-space));
+  height: -moz-calc(100% - ($base-space));
+  height: -webkit-calc(100% - ($base-space));
+  height: -o-calc(100% - ($base-space));
+  height: calc(100% - ($base-space));
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 4.66667px;
+  padding: 14px;
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  right: 14px;
+  bottom: 14px;
+  text-align: center; }
+  @media (max-width: 480px) {
     .c-section {
-      top: 16px;
-      transform: none; } }
+      position: static;
+      height: 100%; } }
+
+.c-section__text {
+  margin: 28px 0;
+  color: rgba(255, 255, 255, 0.7); }
+
+.c-section__header {
+  float: right; }
+  @media (max-width: 784px) {
+    .c-section__header {
+      float: none; } }
+
+.c-section__form {
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  height: 550px;
+  width: 400px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  padding: 42px 14px;
+  border-radius: 4.66667px 4.66667px 0 0;
+  display: none; }
+  @media (max-width: 480px) {
+    .c-section__form {
+      top: 14px;
+      height: 100%;
+      width: 100%; } }
+  .c-section__form img {
+    position: absolute;
+    right: -14px;
+    top: -14px; }
 
 .c-list {
   list-style-type: none; }
@@ -1339,8 +1430,15 @@ select {
 .c-list--inline li {
   display: inline-block; }
 
-.c-list--first li:first-of-type {
-  margin-right: 8px; }
+.c-list--nav li {
+  padding: 0 14px; }
+  .c-list--nav li a {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    padding-bottom: 7px; }
+    .c-list--nav li a:hover {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.7); }
 
 .c-image--center {
   display: block;
@@ -1359,7 +1457,7 @@ select {
   opacity: 0.5; }
 
 .c-footer__text {
-  font-size: 10.6666666667px; }
+  font-size: 9.33333px; }
 
 /*********************
 IMPORTING LAYOUTS
@@ -1387,6 +1485,14 @@ and will be used across all viewports.
 /*********************
 GENERAL STYLES
 *********************/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
 body {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 100%;
@@ -1396,12 +1502,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   z-index: 2;
-  margin: 0;
   padding: 0;
+  margin-top: -24px;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  background: #fff; }
+  background: #354654; }
 
 /********************
 WORDPRESS BODY CLASSES
@@ -1450,7 +1555,7 @@ LAYOUT & GRID STYLES
   margin: 0 auto; }
   @media (max-width: 784px) {
     .wrap {
-      padding: 0 8px; } }
+      padding: 0 7px; } }
 
 /*********************
 LINK STYLES
@@ -1460,7 +1565,6 @@ a, a:visited {
   /* on click */
   /* mobile tap color */ }
   a:hover, a:focus, a:visited:hover, a:visited:focus {
-    color: #e8e8e8;
     outline: none; }
   a:link, a:visited:link {
     /*
@@ -1510,7 +1614,7 @@ h5, .h5 {
 HEADER STYLES
 *********************/
 .header {
-  padding: 16px;
+  padding: 14px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
 
 #logo {
@@ -1638,7 +1742,7 @@ POSTS & CONTENT STYLES
   .entry-content blockquote {
     margin: 0 0 1.5em 0.75em;
     padding: 0 0 0 0.75em;
-    border-left: 3px solid #00BBE7;
+    border-left: 3px solid #2980b9;
     font-style: italic;
     color: #9fa6b4; }
   .entry-content dd {
@@ -1658,7 +1762,7 @@ POSTS & CONTENT STYLES
     max-width: 100%;
     height: auto; }
   .entry-content pre {
-    background: #323944;
+    background: #000;
     color: #f8f9fa;
     font-size: 0.9em;
     padding: 1.5em;
@@ -1720,9 +1824,9 @@ PAGE NAVI STYLES
     padding: 0.75em;
     min-width: 1em;
     display: block;
-    color: #00BBE7; }
+    color: #2980b9; }
     .pagination a:hover, .pagination a:focus, .pagination span:hover, .pagination span:focus {
-      background-color: #00BBE7;
+      background-color: #2980b9;
       color: #fff; }
   .pagination .current {
     cursor: default;
@@ -2026,7 +2130,7 @@ you can add resource intensive styles.
     /* highlight current page */
     /* end current highlighters */ }
     .nav ul {
-      background: #323944;
+      background: #000;
       margin-top: 0; }
     .nav li {
       float: left;
@@ -2144,7 +2248,7 @@ you can add resource intensive styles.
   
   ******************************************************************/
   .wrap {
-    width: 960px; } }
+    width: 500px; } }
 /*********************
 LARGE VIEWING SIZE
 This is for the larger monitors and possibly full screen viewers.

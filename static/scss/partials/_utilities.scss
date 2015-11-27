@@ -49,3 +49,39 @@ Hide Utilities
 		display:none;
 	}
 }
+
+
+/*********************
+VERTICAL CENTERING
+*********************/
+.u-v{
+
+	@include screen-size(md-min){
+		position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    -ms-transform: translateX(-50%) translateY(-50%);
+	    transform: translateX(-50%) translateY(-50%);
+	    max-width:500px;
+	}
+
+    @include screen-size(md-max){
+    	width:100%;
+    }
+}
+
+/*********************
+COLORS
+*********************/
+
+.u-white{
+	color:$white;
+}
+
+/*********************
+WEIGHTS
+*********************/
+
+.u-b{
+	font-weight:bold;
+}

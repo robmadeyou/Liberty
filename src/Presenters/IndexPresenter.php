@@ -2,9 +2,10 @@
 
 namespace Project\Liberty\Presenters;
 
-use Rhubarb\Leaf\Presenters\HtmlPresenter;
+use Rhubarb\Patterns\Mvp\Crud\ModelForm\ModelFormPresenter;
+use Rhubarb\Stem\Repositories\MySql\MySql;
 
-class IndexPresenter extends HtmlPresenter
+class IndexPresenter extends ModelFormPresenter
 {
     protected function createView()
     {

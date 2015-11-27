@@ -5,10 +5,14 @@ namespace Project\Liberty\Presenters;
 use Project\Liberty\Models\Contact;
 use Rhubarb\Leaf\Presenters\Controls\Buttons\Button;
 use Rhubarb\Leaf\Presenters\Controls\Text\TextBox\TextBox;
-use Rhubarb\Leaf\Views\HtmlView;
+use Rhubarb\Leaf\Views\WithJqueryViewBridgeTrait;
+use Rhubarb\Patterns\Mvp\Crud\CrudView;
 
-class IndexView extends HtmlView
+class IndexView extends CrudView
 {
+
+    use WithJqueryViewBridgeTrait;
+
     public function createPresenters()
     {
         parent::createPresenters();
@@ -18,18 +22,16 @@ class IndexView extends HtmlView
             $email = new TextBox( 'Email' ),
             $website = new TextBox( 'Website' ),
             $company = new TextBox( 'CompanyName' ),
-            $send = new Button( 'Send', 'Send', function()
+            $send = new Button( 'Send', 'Register', function()
             {
                 $contact = new Contact();
                 $contact->Name = $this->presenters[ 'Name' ]->Text;
                 $contact->ContactEmail = $this->presenters[ 'Email' ]->Text;
                 $contact->CompanyName = $this->presenters[ 'CompanyName' ]->Text;
                 $contact->Website = $this->presenters[ 'Website' ]->Text;
+                $contact->IP = $_SERVER[ 'REMOTE_ADDR' ];
                 $contact->save();
-                $this->presenters[ 'Website' ];
-                $this->presenters[ 'CompanyName' ];
-                $this->presenters[ 'Send' ];
-            } )
+            }, true )
         );
 
         foreach( $this->presenters as $presenter )
@@ -37,6 +39,7 @@ class IndexView extends HtmlView
             if( $presenter instanceof TextBox )
             {
                 $presenter->addHtmlAttribute( 'value', '' );
+                $presenter->addCssClassName( 'alert' );
             }
         }
 
@@ -45,6 +48,7 @@ class IndexView extends HtmlView
         $website->setPlaceholderText( 'Website (If any)' );
         $company->setPlaceholderText( 'Company Name' );
 
+        $send->addCssClassName( 'c-button c-button--secondary' );
     }
 
     protected function printViewContent()
@@ -52,29 +56,45 @@ class IndexView extends HtmlView
         parent::printViewContent();
 
         ?>
-        <div class="wrap cf">
-            <div class="c-section cf">
-                <div class="m-all t-1of2 d-1of2">
-                    <h1>Hello World</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel metus in neque pharetra ultricies at eu mauris. Nunc vitae mi vitae justo blandit cursus. Mauris vel mattis dui. Aliquam vitae felis et nunc hendrerit cursus id eu est. Duis ultricies erat mauris, ut commodo enim varius in. Praesent commodo ullamcorper diam id condimentum. Phasellus et lectus elit. Suspendisse ac porttitor sapien. Sed consequat hendrerit vestibulum. Integer eget nibh iaculis, commodo felis at, finibus dui. Ut eu sagittis risus. Proin dignissim ut enim eu consectetur. Donec euismod aliquet dapibus. Phasellus euismod velit in ligula efficitur, nec aliquam nibh ornare. Mauris eu dolor tempor, varius neque quis, hendrerit nisi.</p>
-                    <a href="#" class="c-button c-button--primary">Tweet Us</a>
-                </div>
-                <div class="m-all t-1of2 d-1of2">
-                    <?php
-                        print $this->presenters[ 'Name' ];
-                        print $this->presenters[ 'Email' ];
-                        print $this->presenters[ 'Website' ];
-                        print $this->presenters[ 'CompanyName' ];
-                        print $this->presenters[ 'Send' ];
-                    ?>
+        <div class="c-section js-slideUp">
+            <div class="c-section__header">
+                <ul class="c-list c-list--inline c-list--nav">
+                    <li><a href="/a" class="js-fade-out-index">about liberty</a></li>
+                    <li><a href="/t" class="js-fade-out-index">terms of service</a></li>
+                    <li><a href="/g" class="js-fade-out-index">get in touch</a></li>
+                </ul>
+            </div>
+            <div class="wrap">
+                <div class="u-v">
+                    <h1 class="c-title c-title--main animated fadeInUp js-title--main">Giving small business a fighting chance online.</h1>
+                    <div class="c-section__text animated fadeInUp js-text--main">
+                        <p>We feel that every business deserves to leave their mark on the internet. That’s why we’re giving away <span class="u-white u-b">1 FREE</span> bespoke single page website every <span class="u-white u-b">2 WEEKS</span>.</p>
+
+                        <p>Register below for your chance to win.</p>
+                    </div>
+                    <a href="#" class="c-button c-button--primary animated fadeInUp js-button--register">Register</a>
                 </div>
             </div>
-        </div>
-        <div class="c-background">
-            <canvas id="world"></canvas>
+            <div class="c-section__form js-input-overlay">
+                <a href="#"><img src="/static/images/close.png" alt="close" width="35"/></a>
+                <?php
+                    print "<label>Name</label>";
+                    print $this->presenters[ 'Name' ];
+                    print "<label>Email</label>";
+                    print $this->presenters[ 'Email' ];
+                    print "<label>Website</label>";
+                    print $this->presenters[ 'Website' ];
+                    print "<label>Company Name</label>";
+                    print $this->presenters[ 'CompanyName' ];
+                    print $this->presenters[ 'Send' ];
+                ?>
+            </div>
         </div>
         <?php
+    }
 
-
+    public function getDeploymentPackageDirectory()
+    {
+        return __DIR__;
     }
 }
