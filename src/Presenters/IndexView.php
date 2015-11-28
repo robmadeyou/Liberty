@@ -24,13 +24,16 @@ class IndexView extends CrudView
             $company = new TextBox( 'CompanyName' ),
             $send = new Button( 'Send', 'Register', function()
             {
-                $contact = new Contact();
-                $contact->Name = $this->presenters[ 'Name' ]->Text;
-                $contact->ContactEmail = $this->presenters[ 'Email' ]->Text;
-                $contact->CompanyName = $this->presenters[ 'CompanyName' ]->Text;
-                $contact->Website = $this->presenters[ 'Website' ]->Text;
-                $contact->IP = $_SERVER[ 'REMOTE_ADDR' ];
-                $contact->save();
+                if( $this->presenters[ 'Name' ] && $this->presenters[ 'Email' ] && $this->presenters[ 'CompanyName' ] && $this->presenters[ 'Website' ] )
+                {
+                    $contact = new Contact();
+                    $contact->Name = $this->presenters[ 'Name' ]->Text;
+                    $contact->ContactEmail = $this->presenters[ 'Email' ]->Text;
+                    $contact->CompanyName = $this->presenters[ 'CompanyName' ]->Text;
+                    $contact->Website = $this->presenters[ 'Website' ]->Text;
+                    $contact->IP = $_SERVER[ 'REMOTE_ADDR' ];
+                    $contact->save();
+                }
             }, true )
         );
 
