@@ -28,7 +28,8 @@ class IndexView extends CrudView
                     $this->presenters[ 'CompanyName' ] &&
                     $this->presenters[ 'Website' ]
                 ) {
-                    if (!IndexPresenter::checkIfCompanyIsTaken( $this->presenters[ 'CompanyName' ] ) &&
+                    if (!IndexPresenter::checkIfIPIsTaken( $_SERVER[ 'REMOTE_ADDR' ] ) &&
+                        !IndexPresenter::checkIfCompanyIsTaken( $this->presenters[ 'CompanyName' ] ) &&
                         !IndexPresenter::checkIfEmailIsTaken( $this->presenters[ 'Email' ] ) &&
                         !IndexPresenter::checkIfNameIsTaken( $this->presenters[ 'CompanyName' ] ) &&
                         !IndexPresenter::checkIfWebsiteIsTaken( $this->presenters[ 'Website' ] )

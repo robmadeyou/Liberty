@@ -48,6 +48,15 @@ class IndexPresenter extends ModelFormPresenter
         return true;
     }
 
+    public static function checkIfIPIsTaken( $ip )
+    {
+        if( MySql::returnSingleValue( "SELECT COUNT( ContactID ) FROM tblContact WHERE tblContact.CompanyName = :ip", [ 'ip' => $ip ] ) )
+        {
+            return false;
+        }
+        return true;
+    }
+
     protected function configureView()
     {
         $this->view->attachEventHandler( 'InputCheck', function( $name, $value )
