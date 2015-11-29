@@ -49,8 +49,8 @@ bridge.prototype.attachEvents = function () {
 
 	send_button.click( function( event )
 	{
-		var elements = [ name_input, email_input, website_input, company_input ];
-		if( name_input.val() == "" || email_input.val() == "" || website_input.val() == "" || company_input.val() == "" )
+		var elements = [ name_input, email_input, company_input ];
+		if( name_input.val() == "" || email_input.val() == "" || company_input.val() == "" )
 		{
 			var i = 0;
 			for( i; i < elements.length; i++ )

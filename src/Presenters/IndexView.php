@@ -3,6 +3,8 @@
 namespace Project\Liberty\Presenters;
 
 use Project\Liberty\Models\Contact;
+use Rhubarb\Crown\Exceptions\ForceResponseException;
+use Rhubarb\Crown\Response\RedirectResponse;
 use Rhubarb\Leaf\Presenters\Controls\Buttons\Button;
 use Rhubarb\Leaf\Presenters\Controls\Text\TextBox\TextBox;
 use Rhubarb\Leaf\Views\WithJqueryViewBridgeTrait;
@@ -41,6 +43,7 @@ class IndexView extends CrudView
                         $contact->Website = $this->presenters[ 'Website' ]->Text;
                         $contact->IP = $_SERVER[ 'REMOTE_ADDR' ];
                         $contact->save();
+                        throw new ForceResponseException( new RedirectResponse( '/h' ) );
                     }
                 }
             } )
