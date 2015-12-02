@@ -1,5 +1,15 @@
 .c-container{
-	min-height:900px;
-	position:relative;
-	z-index:1;
+	padding:$padding*2;
+	margin:0 auto;
+	@include screen-size(md-max){
+		padding:$padding;
+	}
+}
+
+.c-container__body{
+	max-width:850px;
+
+	a{
+		color:$white;
+	}
 }

@@ -9,6 +9,10 @@
 }
 
 .c-list--nav{
+	@include screen-size(md-max){
+		text-align:center;
+	}
+
 	li {
 		padding:0 $padding;
 

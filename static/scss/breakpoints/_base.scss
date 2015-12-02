@@ -40,6 +40,10 @@ body {
     background: $background-navy;
 }
 
+p{
+	margin-bottom:$margin;
+}
+
 /********************
 WORDPRESS BODY CLASSES
 style a page via class
@@ -99,7 +103,7 @@ LINK STYLES
 *********************/
 
 a, a:visited {
-
+	
 	/* on hover */
 	&:hover, &:focus {
 		outline:none;

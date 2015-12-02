@@ -66,6 +66,7 @@ class IndexView extends CrudView
 
         ?>
         <div class="c-section js-slideUp">
+            <a href="/"><img src="/static/images/logo.png" class="c-image" alt="poak logo" title="Home"/></a>
             <div class="c-section__header">
                 <ul class="c-list c-list--inline c-list--nav">
                     <li><a href="/a" class="js-fade-out-index">about liberty</a></li>
