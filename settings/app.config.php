@@ -8,6 +8,7 @@ use Project\Liberty\Presenters\About\AboutPresenter;
 use Project\Liberty\Presenters\GetInTouch\GetInTouchPresenter;
 use Project\Liberty\Presenters\IndexPresenter;
 use Project\Liberty\Presenters\Terms\TermsPresenter;
+use Project\Liberty\Presenters\Thanks\ThanksPresenter;
 use Project\Liberty\Presenters\Winner\WinnerPresenter;
 use Rhubarb\Crown\Context;
 use Rhubarb\Crown\Encryption\HashProvider;
@@ -44,9 +45,10 @@ class YourAppModule extends Module
         $this->addUrlHandlers(
             [
                 "/" => new ClassMappedUrlHandler( IndexPresenter::class, [
-                    'w' => new ClassMappedUrlHandler( WinnerPresenter::class ),
-                    'a' => new ClassMappedUrlHandler( AboutPresenter::class ),
-                    't' => new ClassMappedUrlHandler( TermsPresenter::class ),
+                    'w'  => new ClassMappedUrlHandler( WinnerPresenter::class ),
+                    'a'  => new ClassMappedUrlHandler( AboutPresenter::class ),
+                    't'  => new ClassMappedUrlHandler( TermsPresenter::class ),
+                    'th' => new ClassMappedUrlHandler( ThanksPresenter::class ),
                 ] )
             ]
         );
