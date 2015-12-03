@@ -9,6 +9,7 @@ use Project\Liberty\Presenters\GetInTouch\GetInTouchPresenter;
 use Project\Liberty\Presenters\IndexPresenter;
 use Project\Liberty\Presenters\Terms\TermsPresenter;
 use Project\Liberty\Presenters\Winner\WinnerPresenter;
+use Rhubarb\Crown\Context;
 use Rhubarb\Crown\Encryption\HashProvider;
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\Module;
