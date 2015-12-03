@@ -71,7 +71,7 @@ class IndexView extends CrudView
                 <ul class="c-list c-list--inline c-list--nav">
                     <li><a href="/a" class="js-fade-out-index">about liberty</a></li>
                     <li><a href="/t" class="js-fade-out-index">terms of service</a></li>
-                    <li><a href="/g" class="js-fade-out-index">get in touch</a></li>
+                    <li><a href="mailto:hello@poak.io">get in touch</a></li>
                 </ul>
             </div>
             <div class="wrap">
@@ -82,7 +82,7 @@ class IndexView extends CrudView
                     <div class="c-section__text animated fadeInUp js-text--main">
                         <p>We feel that every business deserves to leave their mark on the internet. That’s why we’re
                             giving away <span class="u-white u-b">1 FREE</span> bespoke single page website every <span
-                                class="u-white u-b">2 WEEKS</span>.</p>
+                                class="u-white u-b">1 Calendar month</span>.</p>
 
                         <p>Register below for your chance to win.</p>
                     </div>
@@ -90,7 +90,7 @@ class IndexView extends CrudView
                 </div>
             </div>
             <div class="c-section__form js-input-overlay">
-                <a href="#"><img src="/static/images/close.png" alt="close" width="35"/></a>
+                <a href="#" id="close-form"><img src="/static/images/close.png" alt="close" width="35"/></a>
                 <?php
                 print "<label>Name</label>";
                 print $this->presenters[ 'Name' ];

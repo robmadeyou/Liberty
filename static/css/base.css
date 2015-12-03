@@ -26,6 +26,20 @@
     }
 }
 
+@media (max-width: 767px) {
+    @-webkit-keyframes slideUp {
+        from {
+            -webkit-transform: none;
+            transform: none;
+        }
+
+        to {
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+}
+
 .alert
 {
     -webkit-transition: border-color 0.4s;

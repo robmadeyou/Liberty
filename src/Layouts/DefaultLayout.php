@@ -19,7 +19,7 @@ class DefaultLayout extends BaseLayout
 
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-            <title>Liberty Project</title>
+            <title>PAOK</title>
 
             <meta name="HandheldFriendly" content="True">
             <meta name="MobileOptimized" content="320">

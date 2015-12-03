@@ -13,10 +13,13 @@ bridge.prototype.attachEvents = function () {
 	var text = $( '.js-text--main' );
 	var register = $( '.js-button--register' );
 
+	var register_close = $( '#close-form' );
+
 	var name_input = $( '#IndexPresenter_Name' );
 	var email_input = $( '#IndexPresenter_Email' );
 	var website_input = $( '#IndexPresenter_Website' );
 	var company_input = $( '#IndexPresenter_CompanyName' );
+	var send_button = $( '#IndexPresenter_Send' );
 
 	register.click( function( event )
 	{
@@ -43,6 +46,30 @@ bridge.prototype.attachEvents = function () {
 		event.preventDefault();
 		return false;
 	});
+
+	send_button.click( function( event )
+	{
+		var elements = [ name_input, email_input, website_input, company_input ];
+		if( name_input.val() == "" || email_input.val() == "" || website_input.val() == "" || company_input.val() == "" )
+		{
+			var i = 0;
+			for( i; i < elements.length; i++ )
+			{
+				if( elements[ i ].val() == "" )
+				{
+					handleElementUpdate( elements[ i ], 3 );
+				}
+			}
+			event.preventDefault();
+			return false;
+		}
+	});
+
+	register_close.click( function()
+	{
+		window.location.href = location.href;
+	} );
+
 
 	$( '.js-fade-out-index' ).click( function( event )
 	{

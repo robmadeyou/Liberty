@@ -46,7 +46,6 @@ class YourAppModule extends Module
                     'w' => new ClassMappedUrlHandler( WinnerPresenter::class ),
                     'a' => new ClassMappedUrlHandler( AboutPresenter::class ),
                     't' => new ClassMappedUrlHandler( TermsPresenter::class ),
-                    'g' => new ClassMappedUrlHandler( GetInTouchPresenter::class ),
                 ] )
             ]
         );
