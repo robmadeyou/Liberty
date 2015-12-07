@@ -72,7 +72,7 @@ class IndexView extends CrudView
             <a href="/"><img src="/static/images/logo.png" class="c-image" alt="poak logo" title="Home"/></a>
             <div class="c-section__header">
                 <ul class="c-list c-list--inline c-list--nav">
-                    <li><a href="/a" class="js-fade-out-index">about liberty</a></li>
+                    <li><a href="/a" class="js-fade-out-index">about poak</a></li>
                     <li><a href="/t" class="js-fade-out-index">terms of service</a></li>
                     <li><a href="mailto:hello@poak.io">get in touch</a></li>
                 </ul>

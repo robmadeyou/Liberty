@@ -25,7 +25,7 @@ class DefaultLayout extends BaseLayout
             <meta name="MobileOptimized" content="320">
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-            <link rel="icon" href="/static/images/favicon.png">
+            <link rel="icon" href="/static/images/favicon.ico">
             <!--[if IE]>
             <link rel="shortcut icon" href="/static/images/favicon.ico">
             <![endif]-->

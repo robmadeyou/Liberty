@@ -23,19 +23,16 @@ class TermsView extends CrudView
              as long as you to return the favour and get back to us as quickly as possible."
         ]
         ?>
-        <div class="wrap">
-            <div class="u-v">
-                <h1 class="c-title c-title--main animated fadeInUp js-title--main">Terms and Conditions</h1>
-                <div class="c-section__text animated fadeInUp js-text--main">
-                    <p>So, to make it fair, let's lay down some ground rules.</p>
-                    <?php
-                        foreach( $array as $item )
-                        {
-                            print '<p>' . $item . '</p>';
-                        }
-                    ?>
-                </div>
-            </div>
+
+        <h1 class="c-title c-title--main js-title--main">Terms of Service</h1>
+        <div class="c-section__text js-text--main">
+            <p>So, to make it fair, let's lay down some ground rules.</p>
+            <?php
+                foreach( $array as $item )
+                {
+                    print '<p>' . $item . '</p>';
+                }
+            ?>
         </div>
         <?php
     }
